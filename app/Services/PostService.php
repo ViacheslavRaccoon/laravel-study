@@ -14,6 +14,17 @@ class PostService
     public function get_posts()
     {
         $posts = Post::all();
-        dd($posts);
+        foreach ($posts as $post) {
+            dump($post->title);
+        }
+        dd('end');
+    }
+    public function get_posts_by_publish()
+    {
+        $posts = Post::where('is_published', 1)->get();
+        foreach ($posts as $post) {
+            dump($post->title);
+        }
+        dd('end');
     }
 }

@@ -17,4 +17,8 @@ class PostController extends Controller
     {
         $service->get_posts();
     }
+    public function get_posts_by_publish(PostService $service)
+    {
+        $service->get_posts_by_publish();
+    }
 }
