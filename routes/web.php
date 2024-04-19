@@ -10,4 +10,5 @@ Route::get('/', function () {
 
 Route::get('/hello', [FirstController::class , 'index']);
 
-Route::get('/posts', [PostController::class , 'index']);
+Route::get('/post/{id}', [PostController::class , 'get_post']);
+Route::get('/posts', [PostController::class , 'get_posts']);
