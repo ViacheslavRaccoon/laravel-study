@@ -30,4 +30,12 @@ class PostController extends Controller
     {
         $service->update_post($request->id);
     }
+    public function post_delete(Request $request, PostService $service)
+    {
+        $service->delete_post($request->id);
+    }
+    public function post_restore(PostService $service)
+    {
+        $service->restore_post();
+    }
 }

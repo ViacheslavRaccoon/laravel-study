@@ -62,4 +62,16 @@ class PostService
             'is_published'=> 1
         ]);
     }
+    public function delete_post($post_id)
+    {
+        $post = Post::where(['id' => $post_id])->first();
+        $post->delete();
+        dd('deleted');
+    }
+    public function restore_post()
+    {
+        $post = Post::withTrashed()->find(2);
+        $post->restore();
+        dd('restored');
+    }
 }
