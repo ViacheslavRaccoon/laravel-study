@@ -21,4 +21,13 @@ class PostController extends Controller
     {
         $service->get_posts_by_publish();
     }
+    public function posts_create(PostService $service)
+    {
+        $service->create_posts();
+    }
+
+    public function post_update(Request $request, PostService $service)
+    {
+        $service->update_post($request->id);
+    }
 }
