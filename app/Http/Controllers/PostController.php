@@ -38,4 +38,12 @@ class PostController extends Controller
     {
         $service->restore_post();
     }
+    public function firstOrCreate(Request $request,PostService $service)
+    {
+        $service->firstOrCreate($request->id);
+    }
+    public function updateOrCreate(Request $request,PostService $service)
+    {
+        $service->updateOrCreate($request->id);
+    }
 }

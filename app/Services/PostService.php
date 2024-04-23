@@ -61,6 +61,7 @@ class PostService
             'likes' => 55,
             'is_published'=> 1
         ]);
+        dd($post);
     }
     public function delete_post($post_id)
     {
@@ -73,5 +74,29 @@ class PostService
         $post = Post::withTrashed()->find(2);
         $post->restore();
         dd('restored');
+    }
+    public function firstOrCreate($post_id)
+    {
+        $post = Post::firstOrCreate(['id' => $post_id],[
+            'title' => 'New Title R',
+            'content' => 'New Content R',
+            'image' => 'R new_image.jpg',
+            'likes' => 100,
+            'is_published'=> 1
+        ]);
+        dump($post->content);
+        dd('end');
+    }
+    public function updateOrCreate($post_id)
+    {
+        $post = Post::updateOrCreate(['id' => $post_id],[
+            'title' => 'New Title R',
+            'content' => 'New Content R Update',
+            'image' => 'R new_image.jpg',
+            'likes' => 100,
+            'is_published'=> 1
+        ]);
+        dump($post->content);
+        dd('end');
     }
 }

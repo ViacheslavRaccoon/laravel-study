@@ -17,3 +17,5 @@ Route::get('/posts/create', [PostController::class , 'posts_create']);
 Route::get('/post/update/{id}', [PostController::class , 'post_update']);
 Route::get('/post/delete/{id}', [PostController::class , 'post_delete']);
 Route::get('/post/restore/{id}', [PostController::class , 'post_restore']);
+Route::get('/post/first_or_create/{id}', [PostController::class , 'firstOrCreate']);
+Route::get('/post/update_or_create/{id}', [PostController::class , 'updateOrCreate']);
