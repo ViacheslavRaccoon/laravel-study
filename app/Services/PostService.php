@@ -9,15 +9,14 @@ class PostService
     public function get_post_by_id($post_id)
     {
         $post = Post::find($post_id);
-        dd($post);
     }
     public function get_posts()
     {
         $posts = Post::all();
-        foreach ($posts as $post) {
-            dump($post->title);
-        }
-        dd('end');
+
+        return view('posts');
+//        dump($posts);
+//        dd('end');
     }
     public function get_posts_by_publish()
     {
@@ -49,7 +48,7 @@ class PostService
         foreach ($postsArr as $posts) {
             Post::create($posts);
         }
-        dd('created');
+//        dd('created');
     }
     public function update_post($post_id)
     {
@@ -61,19 +60,19 @@ class PostService
             'likes' => 55,
             'is_published'=> 1
         ]);
-        dd($post);
+//        dd($post);
     }
     public function delete_post($post_id)
     {
         $post = Post::where(['id' => $post_id])->first();
         $post->delete();
-        dd('deleted');
+//        dd('deleted');
     }
     public function restore_post()
     {
         $post = Post::withTrashed()->find(2);
         $post->restore();
-        dd('restored');
+//        dd('restored');
     }
     public function firstOrCreate($post_id)
     {
@@ -84,8 +83,8 @@ class PostService
             'likes' => 100,
             'is_published'=> 1
         ]);
-        dump($post->content);
-        dd('end');
+//        dump($post->content);
+//        dd('end');
     }
     public function updateOrCreate($post_id)
     {
@@ -96,7 +95,9 @@ class PostService
             'likes' => 100,
             'is_published'=> 1
         ]);
-        dump($post->content);
-        dd('end');
+//        dump($post->content);
+//        dd('end');
     }
+
+
 }

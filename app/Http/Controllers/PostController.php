@@ -15,7 +15,9 @@ class PostController extends Controller
 
     public function get_posts(PostService $service)
     {
-        $service->get_posts();
+        $posts = Post::all();
+
+        return view('posts');
     }
     public function get_posts_by_publish(PostService $service)
     {
@@ -45,5 +47,10 @@ class PostController extends Controller
     public function updateOrCreate(Request $request,PostService $service)
     {
         $service->updateOrCreate($request->id);
+    }
+
+    public function SomaFunction()
+    {
+        Sone();
     }
 }
